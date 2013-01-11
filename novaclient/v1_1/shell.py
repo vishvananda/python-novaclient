@@ -1512,6 +1512,24 @@ def do_get_vnc_console(cs, args):
     utils.print_list([VNCConsole(data['console'])], ['Type', 'Url'])
 
 
+@utils.arg('server', metavar='<server>', help='Name or ID of server.')
+@utils.arg('private_key',
+    metavar='<private-key>',
+    help='Private key (used locally to decrypt password).')
+def do_get_password(cs, args):
+    """Get a vnc console to a server."""
+    server = _find_server(cs, args.server)
+    data = server.get_password(args.private_key)
+    print data
+
+
+@utils.arg('server', metavar='<server>', help='Name or ID of server.')
+def do_reset_password(cs, args):
+    """Get a vnc console to a server."""
+    server = _find_server(cs, args.server)
+    data = server.reset_password()
+
+
 def _print_floating_ip_list(floating_ips):
     utils.print_list(floating_ips, ['Ip', 'Instance Id', 'Fixed Ip', 'Pool'])
 
