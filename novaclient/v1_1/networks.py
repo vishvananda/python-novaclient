@@ -88,6 +88,10 @@ class NetworkManager(base.ManagerWithFind):
         :param project_id: str
         :param vlan_start: int
         :param vpn_start: int
+        :param mtu: int
+        :param enable_dhcp: int
+        :param dhcp_server: str
+        :param share_address: int
 
         :rtype: list of :class:`Network`
         """
